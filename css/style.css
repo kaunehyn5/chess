@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Hiragino Sans", "Yu Gothic", Arial, sans-serif;
+  background: #2b2b2b;
+  color: #eee;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+button {
+  font-size: 1.1em;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #4a7a4a;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #5d955d;
+}
+
+#btn-undo, #btn-restart, #btn-menu {
+  width: 100%;
+  margin-top: 8px;
+  background: #555;
+}
+
+#btn-undo:hover, #btn-restart:hover, #btn-menu:hover {
+  background: #777;
+}
+
+.game-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.board-container {
+  width: 480px;
+  max-width: 90vw;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border: 4px solid #1e1e1e;
+}
+
+.square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: min(7vw, 50px);
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.square.light {
+  background: #eed6b3;
+}
+
+.square.dark {
+  background: #8a5a3c;
+}
+
+.square.selected {
+  outline: 3px solid #ffd54f;
+  outline-offset: -3px;
+}
+
+.square.move-target::after {
+  content: '';
+  width: 22%;
+  height: 22%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  position: absolute;
+}
+
+.square.capture-target {
+  outline: 3px solid rgba(200, 40, 40, 0.7);
+  outline-offset: -3px;
+}
+
+.piece-white {
+  color: #fdfdfd;
+  text-shadow: 0 0 2px #000, 0 1px 1px #000;
+}
+
+.piece-black {
+  color: #111;
+  text-shadow: 0 0 2px #fff;
+}
+
+.side-panel {
+  width: 240px;
+  text-align: left;
+}
+
+#status {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 12px;
+  min-height: 1.5em;
+}
+
+#move-history {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+  font-size: 0.95em;
+  margin-bottom: 8px;
+}
