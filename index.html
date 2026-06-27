@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>チェスゲーム</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="screen-menu" class="screen">
+  <h1>チェス</h1>
+  <div class="menu-buttons">
+    <button id="btn-pvp">人 vs 人</button>
+    <button id="btn-pvc">人 vs AI</button>
+  </div>
+
+  <div id="difficulty-panel" class="hidden">
+    <h2>難易度を選択</h2>
+    <div class="menu-buttons">
+      <button class="diff-btn" data-level="1">簡単</button>
+      <button class="diff-btn" data-level="5">普通</button>
+      <button class="diff-btn" data-level="10">難しい</button>
+      <button class="diff-btn" data-level="18">最強</button>
+    </div>
+  </div>
+</div>
+
+<div id="screen-game" class="screen hidden">
+  <div class="game-layout">
+    <div id="board" class="board-container"></div>
+    <div class="side-panel">
+      <div id="status"></div>
+      <div id="move-history"></div>
+      <button id="btn-undo">一手戻す</button>
+      <button id="btn-restart">最初から</button>
+      <button id="btn-menu">メニューに戻る</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/vendor/chess.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
