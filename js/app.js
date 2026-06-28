@@ -1,6 +1,10 @@
-const PIECE_UNICODE = {
-  w: { p: '♙', n: '♘', b: '♗', r: '♖', q: '♕', k: '♔' },
-  b: { p: '♟', n: '♞', b: '♝', r: '♜', q: '♛', k: '♚' },
+const PIECE_ICON_CLASS = {
+  p: 'icon-pawn',
+  n: 'icon-knight',
+  b: 'icon-bishop',
+  r: 'icon-rook',
+  q: 'icon-queen',
+  k: 'icon-king',
 };
 
 let game = null;
@@ -102,8 +106,10 @@ function renderBoard() {
 
       const piece = position[row][col];
       if (piece) {
-        sqEl.textContent = PIECE_UNICODE[piece.color][piece.type];
         sqEl.classList.add(piece.color === 'w' ? 'piece-white' : 'piece-black');
+        const iconEl = document.createElement('div');
+        iconEl.className = 'piece-icon ' + PIECE_ICON_CLASS[piece.type];
+        sqEl.appendChild(iconEl);
       }
 
       if (square === selectedSquare) {
